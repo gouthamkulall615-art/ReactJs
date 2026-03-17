@@ -1,0 +1,126 @@
+/* Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+.parent{
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  padding: 30px;
+}
+.card{
+  height: 400px;
+  width: 300px;
+  background-color: white;
+  border-radius: 30px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card .top{
+  display: flex ;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.top img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid #dadada;
+  padding: 2px;
+
+}
+.top button{
+  display: flex;
+  align-items: center;
+  border: 1px solid #dadada;
+  padding: 4px 8px;
+  font-size:14px;
+transition: 0.3s ease-in;
+border-radius: 4px;
+margin-bottom: 12px;
+}
+.top button:hover{
+  background-color: grey;
+  color: white;
+  
+
+}
+.center h3{
+  color: black;
+ 
+}
+.center span{
+  font-size: 9px;
+  color: grey;
+
+}
+.center h2{
+  color: black;
+  font-size: 20px;
+white-space: nowrap;
+}
+.center .center-border{
+  display: flex;
+  gap: 8px;
+ 
+}
+.center-border h4{
+   
+  background-color: rgba(116, 115, 115, 0.49);
+  border-radius: 6px;
+  font-size: 12px;
+  padding: 3px 5px;
+
+
+
+}
+.bottom{
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding-top: 20px;
+border-top: 1px solid #f0f0f0;
+margin-top: 20px;
+
+
+  
+}
+.price-wrapper h2{
+font-size: 20px;
+color: #1a1a1a;
+font-weight: 600;
+line-height: 1.2;
+}
+.price-wrapper span{
+  font-size: 11px;
+  color: #888;
+}
+.bottom .apply-btn {
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.bottom .apply-btn:hover {
+  background-color: #333;
+}
