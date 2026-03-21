@@ -1,5 +1,7 @@
 import React from 'react'
-import UseRefHook from './UseRefHook'
+import UseContextHook from './UseContextHook'
+import ComponentAContetnhook from './componentAContetnhook'
+// import UseRefHook from './UseRefHook'
 // import UseEffectHook from './UseEffectHook'
 // import UseStateHook from './UseStateHook'
 
@@ -9,7 +11,9 @@ const App = () => {
     <div>
       {/* <UseStateHook /> */}
       {/* <UseEffectHook /> */}
-      <UseRefHook/>
+      {/* <UseRefHook/> */}
+      {/* <UseContextHook /> */}
+      <ComponentAContetnhook/>
     </div>
   )
 }
