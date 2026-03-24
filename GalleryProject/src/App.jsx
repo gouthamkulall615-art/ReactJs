@@ -43,6 +43,10 @@ const App = () => {
   }
   return (
     <div className="bg-black overflow-auto h-screen text-white">
+      <div className=" m-3 py-2 bg-amber-300 rounded ">
+        <h3 className="text-xl px-1 py-3 ml-2 bg-black w-24 rounded text-white font-semibold text-center
+        ">Picframe</h3>
+      </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-6">{printuserData}</div>
       <div className="flex gap-4 justify-center items-center p-4">
         <button
