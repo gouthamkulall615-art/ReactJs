@@ -1,0 +1,145 @@
+==============================
+REACT ROUTER v6 - QUICK NOTES
+==============================
+
+1. SETUP (Main Entry)
+---------------------
+Wrap entire app with BrowserRouter.
+
+import { BrowserRouter } from 'react-router-dom';
+
+function App() {
+  return (
+    <BrowserRouter>
+      <YourAppComponents />
+    </BrowserRouter>
+  );
+}
+
+--------------------------------------------------
+
+2. DEFINING ROUTES
+-------------------
+Use Routes to group and Route for paths.
+
+import { Routes, Route } from 'react-router-dom';
+
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/about" element={<About />} />
+
+  // 404 fallback
+  <Route path="*" element={<NotFound />} />
+</Routes>
+
+--------------------------------------------------
+
+3. NAVIGATION (LINKS)
+----------------------
+Avoid <a> (causes full page reload)
+
+import { Link, NavLink } from 'react-router-dom';
+
+// Basic navigation
+<Link to="/about">About</Link>
+
+// Active link support
+<NavLink 
+  to="/dashboard"
+  className={({ isActive }) => isActive ? "active" : ""}
+>
+  Dashboard
+</NavLink>
+
+--------------------------------------------------
+
+4. DYNAMIC ROUTING (PARAMS)
+----------------------------
+Define dynamic path using :
+
+<Route path="/profile/:username" element={<Profile />} />
+
+Access param using useParams:
+
+import { useParams } from 'react-router-dom';
+
+function Profile() {
+  const { username } = useParams();
+  return <h1>{username}</h1>;
+}
+
+--------------------------------------------------
+
+5. PROGRAMMATIC NAVIGATION
+----------------------------
+Navigate via code using useNavigate
+
+import { useNavigate } from 'react-router-dom';
+
+function LoginButton() {
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate('/dashboard'); // redirect
+    // navigate(-1); // go back
+  };
+
+  return <button onClick={handleLogin}>Login</button>;
+}
+
+--------------------------------------------------
+
+6. NESTED ROUTES + OUTLET
+---------------------------
+Used for layouts (sidebar/navbar stays constant)
+
+STEP 1: DEFINE ROUTES
+
+import { Routes, Route } from 'react-router-dom';
+
+<Routes>
+  <Route path="/dashboard" element={<DashboardLayout />}>
+
+    // default child route
+    <Route index element={<DashboardHome />} />
+
+    <Route path="settings" element={<Settings />} />
+    <Route path="stats" element={<Stats />} />
+
+  </Route>
+</Routes>
+
+STEP 2: LAYOUT COMPONENT
+
+import { Outlet, Link } from 'react-router-dom';
+
+function DashboardLayout() {
+  return (
+    <div>
+      <aside>
+        <Link to="/dashboard">Home</Link>
+        <Link to="/dashboard/settings">Settings</Link>
+        <Link to="/dashboard/stats">Stats</Link>
+      </aside>
+
+      <main>
+        <h1>Dashboard</h1>
+        <Outlet />  // child routes render here
+      </main>
+    </div>
+  );
+}
+
+--------------------------------------------------
+
+KEY RULES (DON'T IGNORE)
+-------------------------
+- Never use <a> for internal routing
+- Child routes must NOT start with "/"
+- <Outlet /> is mandatory for nested routes
+- Use index for default child route
+- useNavigate replaces useHistory (v5)
+
+==============================
+END
+==============================
