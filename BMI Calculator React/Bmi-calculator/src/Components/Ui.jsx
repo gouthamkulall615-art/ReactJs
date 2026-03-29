@@ -40,10 +40,10 @@ const Ui = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen bg-linear-to-t from-sky-500 to-indigo-500">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col justify-start items-start h-[60vh] w-[50vh] shadow-md rounded pt-6"
+        className=" bg-white flex flex-col justify-start items-start h-[60vh] w-[50vh] shadow-md rounded pt-6"
       >
         <h3 className="font-semibold text-2xl text-center w-full">
           BMI Calculator
