@@ -4,12 +4,16 @@ const App = () => {
   const [colorType, setColorType] = useState("hex");
   const [color, setColor] = useState("#000");
 
-  function randomColorUtility(lenght) {
+  function randomColorUtility(length) {
     return Math.floor(Math.random() * length);
   }
 
-  function  handleCreateRandomRgbColor(){
-    
+  function handleCreateRandomRgbColor() {
+    const r = randomColorUtility(256);
+    const g = randomColorUtility(256);
+    const b = randomColorUtility(256);
+
+    setColor(`rgb(${r},${g},${b})`);
   }
 
   function handleCreateRandomHexColor() {
@@ -41,6 +45,10 @@ const App = () => {
       >
         generate Random color
       </button>
+      <div className="text">
+        <h3>{colorType === "rgb" ? "RGB Color" : "HEX Color"}</h3>
+        <h1>{color}</h1>
+      </div>
     </div>
   );
 };
