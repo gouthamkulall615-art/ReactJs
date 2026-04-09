@@ -1,9 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const App = () => {
+  
   const [newItem, setNewItem] = useState("");
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(()=>{
 
+    const localValue=localStorage.getItem("ITEM")
+    if(localValue==null) return []
+    return JSON.parse(localValue)
+  });
+
+  useEffect(
+    () => {
+      localStorage.setItem("ITEM", JSON.stringify(todos));
+    },
+    [todos],
+  );
   function handleAdd() {
     if (!newItem.trim()) return; // don't add empty tasks
     setTodos((currentTodos) => [
