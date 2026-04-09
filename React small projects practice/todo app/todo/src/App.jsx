@@ -24,13 +24,7 @@ const App = () => {
     );
   }
   function deleteTodo(id) {
-    setTodos((currentTodos) => {
-     return currentTodos.filter((todo) => {
-        if (todo.id !== id) {
-         
-        }
-      });
-    });
+    setTodos((currentTodos) => currentTodos.filter((todo) => todo.id !== id));
   }
 
   return (
@@ -76,7 +70,7 @@ const App = () => {
               </div>
               <button
                 className="bg-red-400 active:scale-95 cursor-pointer px-2 py-2.5 rounded text-white"
-                onClick={()=>deleteTodo(todo.id)}
+                onClick={() => deleteTodo(todo.id)}
               >
                 Delete
               </button>
