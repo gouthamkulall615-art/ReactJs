@@ -21,7 +21,7 @@ const ReceipesItem = ({ item }) => {
         <p className="text-indigo-400">{item?.publisher}</p>
         <Link
           to={`/recipe-item/${item?.id}`}
-          className="text-gray-400 text-lg text-center hover:text-white"
+          className="text-gray-400 text-lg text-center hover:text-white bg-slate-900 py-3 rounded-2xl active:scale-95"
         >
           Recipe Detials
         </Link>
