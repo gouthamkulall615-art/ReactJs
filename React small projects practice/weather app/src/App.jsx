@@ -28,7 +28,7 @@ const App = () => {
 
     try {
       const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&units=metric&appid=${API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&units=metric&appid=${API_KEY}`,
       );
 
       if (!res.ok) {
@@ -43,7 +43,6 @@ const App = () => {
     }
   }
 
-  // Handle Enter key press
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       fetchWeather();
@@ -52,10 +51,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen w-full flex justify-center items-center bg-pink-200 p-4">
-      {/* Responsive Card Container */}
       <div className="w-full max-w-md bg-indigo-600 p-8 rounded-3xl shadow-2xl transition-all duration-500">
-        
-        {/* Search Bar Section */}
         <div className="flex justify-between items-center gap-2">
           <input
             value={inputValue}
@@ -65,7 +61,7 @@ const App = () => {
             type="text"
             placeholder="Search Cities..."
           />
-          <button 
+          <button
             onClick={fetchWeather}
             className="bg-white rounded-full p-3 hover:bg-indigo-100 transition-colors"
           >
@@ -75,7 +71,6 @@ const App = () => {
 
         {weatherData ? (
           <div className="animate-in fade-in zoom-in duration-500">
-            {/* Weather Icon */}
             <div className="flex justify-center items-center mt-10">
               <img
                 src={allIcons[weatherData.weather[0].main] || clearImg}
@@ -84,7 +79,6 @@ const App = () => {
               />
             </div>
 
-            {/* Main Weather Info */}
             <div className="text-center mt-4">
               <h1 className="text-7xl font-bold text-white tracking-tight">
                 {Math.floor(weatherData.main.temp)}°C
@@ -97,7 +91,6 @@ const App = () => {
               </p>
             </div>
 
-            {/* Details Section */}
             <div className="flex justify-between mt-12 px-2">
               <div className="flex items-center gap-3">
                 <Droplets className="w-8 h-8 text-blue-300" />
@@ -115,7 +108,7 @@ const App = () => {
                 <Wind className="w-8 h-8 text-indigo-200" />
                 <div className="flex flex-col">
                   <span className="font-bold text-2xl text-white">
-                    {weatherData.wind.speed} 
+                    {weatherData.wind.speed}
                     <span className="text-lg font-normal ml-1">Km/h</span>
                   </span>
                   <span className="text-xs text-indigo-200 uppercase tracking-wider">
@@ -126,7 +119,6 @@ const App = () => {
             </div>
           </div>
         ) : (
-          /* Welcome/Empty State */
           <div className="mt-20 text-center text-indigo-200">
             <p className="text-lg">Enter a city to see the weather!</p>
           </div>
