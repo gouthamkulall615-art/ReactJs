@@ -2,15 +2,21 @@ import React, { useEffect, useState } from "react";
 
 const App = () => {
   const [value, setValue] = useState("");
-  const [taskList, setTaskList] = useState(JSON.parse(localStorage.getItem("tasks"))||[]);
+  const [taskList, setTaskList] = useState(
+    JSON.parse(localStorage.getItem("tasks")) || [],
+  );
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(taskList));
   }, [taskList]);
 
   function addTask() {
+    if (value === "") {
+      return;
+    }
     const tasks = [...taskList, value];
     setTaskList(tasks);
+
     setValue("");
   }
   function deleteTask(index) {
