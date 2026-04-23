@@ -1,5 +1,4 @@
 #  React JS Learning Journey
-
 A personal learning repository for mastering React JS from scratch.
 
 ---
